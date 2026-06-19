@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>LG유플러스 홍대입구직영점 6월 특별 혜택</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons for Beautiful UI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f7f8fa;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* U+ Magenta Main Color Variable */
+    :root {
+      --uplus-magenta: #E6007E;
+      --uplus-dark: #1f2024;
+    }
+    
+    /* HOT Badge Custom Bounce Animation */
+    @keyframes bounceHot {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-6px) scale(1.08);
+      }
+    }
+    .animate-bounce-hot {
+      animation: bounceHot 0.8s infinite ease-in-out;
+    }
+
+    /* Soft transition for slider */
+    .slide-item {
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    /* Soft transition for Accordion */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .accordion-content.open {
+      max-height: 2500px; /* high enough to contain content */
+    }
+
+    /* Subtle premium styling for the store intro card only */
+    .premium-intro-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,250,252,0.96)) padding-box,
+        linear-gradient(135deg, rgba(230,0,126,0.30), rgba(255,255,255,0.75), rgba(148,163,184,0.22)) border-box;
+      border: 1px solid transparent;
+      box-shadow: 0 14px 38px rgba(15,23,42,0.07), 0 1px 0 rgba(255,255,255,0.90) inset;
+    }
+    .premium-intro-card::before {
+      content: '';
+      position: absolute;
+      inset: -80px auto auto -70px;
+      width: 170px;
+      height: 170px;
+      background: radial-gradient(circle, rgba(230,0,126,0.09), rgba(230,0,126,0) 68%);
+      pointer-events: none;
+    }
+    .premium-intro-card::after {
+      content: '';
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(230,0,126,0.34), transparent);
+      pointer-events: none;
+    }
+    .premium-intro-content {
+      position: relative;
+      z-index: 1;
+    }
+
+
+    /* Page-wide subtle premium touch: keeps the same structure, only adds depth */
+    .premium-store-header {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.94)),
+        radial-gradient(circle at 12% 0%, rgba(230,0,126,0.06), transparent 34%);
+      box-shadow: 0 1px 0 rgba(15,23,42,0.035), 0 12px 28px rgba(15,23,42,0.025);
+    }
+
+    .premium-benefit-title {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% -34%, rgba(230,0,126,0.34), transparent 36%),
+        radial-gradient(circle at 88% 18%, rgba(59,130,246,0.18), transparent 32%),
+        linear-gradient(135deg, #0b1020 0%, #111827 42%, #1e1b4b 70%, #0f172a 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.06);
+    }
+    .premium-benefit-title::after {
+      content: '';
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+      pointer-events: none;
+    }
+
+    .premium-benefit-card {
+      transform: translateZ(0);
+      box-shadow: 0 10px 26px rgba(15,23,42,0.055), 0 1px 0 rgba(255,255,255,0.72) inset;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+    .premium-benefit-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(15,23,42,0.085), 0 1px 0 rgba(255,255,255,0.82) inset;
+    }
+
+    .premium-samsung-card {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255,255,255,0.20), transparent 26%),
+        radial-gradient(circle at 90% 100%, rgba(125,211,252,0.20), transparent 34%),
+        linear-gradient(135deg, #043b82 0%, #034EA2 46%, #0f5fbb 72%, #022b5f 100%) !important;
+      border-color: rgba(191,219,254,0.48) !important;
+    }
+    .premium-samsung-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.12), transparent 34%, rgba(255,255,255,0.05));
+      pointer-events: none;
+    }
+
+    .premium-internet-card {
+      background:
+        radial-gradient(circle at 14% 0%, rgba(255,255,255,0.22), transparent 28%),
+        radial-gradient(circle at 92% 96%, rgba(255,182,213,0.22), transparent 36%),
+        linear-gradient(135deg, #c9006f 0%, #E6007E 46%, #f1329b 74%, #a9005e 100%) !important;
+      border-color: rgba(251,207,232,0.50) !important;
+    }
+    .premium-internet-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.13), transparent 35%, rgba(255,255,255,0.05));
+      pointer-events: none;
+    }
+
+    .premium-samsung-card > *,
+    .premium-internet-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes checkButtonBreath {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-1px) scale(1.035); }
+    }
+    @keyframes checkButtonShine {
+      0% { transform: translateX(-140%); opacity: 0; }
+      18% { opacity: 0.75; }
+      42% { transform: translateX(140%); opacity: 0; }
+      100% { transform: translateX(140%); opacity: 0; }
+    }
+    .benefit-check-btn {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      animation: checkButtonBreath 2.15s ease-in-out infinite;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+    .benefit-check-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.55) 48%, transparent 78%);
+      transform: translateX(-140%);
+      animation: checkButtonShine 3.2s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .benefit-check-btn:hover,
+    .benefit-check-btn:active {
+      transform: translateY(-1px) scale(1.055);
+      filter: brightness(1.02);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.13);
+    }
+
+    .premium-location-card {
+      background:
+        linear-gradient(145deg, rgba(248,250,252,0.98), rgba(255,255,255,0.96)) padding-box,
+        linear-gradient(135deg, rgba(230,0,126,0.18), rgba(203,213,225,0.45), rgba(255,255,255,0.7)) border-box;
+      border: 1px solid transparent;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.055);
+    }
+    .premium-location-photo {
+      cursor: zoom-in;
+      box-shadow: 0 14px 34px rgba(15,23,42,0.08);
+    }
+    .premium-location-photo img {
+      transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.55s ease;
+      will-change: transform;
+    }
+    .premium-location-photo:hover img,
+    .premium-location-photo:active img,
+    .premium-location-photo.is-zoomed img {
+      transform: scale(1.08);
+      filter: saturate(1.05) contrast(1.03);
+    }
+    .premium-location-photo.is-zoomed {
+      cursor: zoom-out;
+    }
+
+  </style>
+</head>
+<body class="text-slate-800 max-w-xl mx-auto shadow-2xl bg-white min-h-screen pb-24 relative">
+
+  <!-- 1. 월드컵 대표팀 응원 상단 배너 -->
+  <header class="bg-gradient-to-r from-red-600 via-rose-500 to-red-600 text-white text-center py-3.5 px-4 sticky top-0 z-50 shadow-md">
+    <div class="flex items-center justify-center gap-2">
+      <span class="text-xl animate-bounce">⚽</span>
+      <h1 class="text-[15px] font-black tracking-tight drop-shadow-sm">
+        2026 대한민국 월드컵 대표팀을 함께 응원합니다! <span class="text-yellow-300">🔥🇰🇷</span>
+      </h1>
+      <span class="text-xl animate-bounce">⚽</span>
+    </div>
+  </header>
+
+  <!-- 2. 매장 로고 및 상단 브랜드 헤더 -->
+  <div class="premium-store-header px-5 py-4 flex justify-between items-center bg-white border-b border-gray-100">
+    <div class="flex items-center gap-2">
+      <!-- LG U+ Logo concept styled via CSS and text -->
+      <span class="w-7 h-7 bg-[#E6007E] rounded-full flex items-center justify-center text-white text-xs font-black">U+</span>
+      <span class="font-extrabold text-lg text-slate-800 tracking-tight">U<sup>+</sup> 홍대입구직영점</span>
+    </div>
+    <span class="text-xs font-semibold px-2.5 py-1 bg-rose-50 text-[#E6007E] rounded-full">본사소속 직영점</span>
+  </div>
+
+  <!-- 3. 매장 소개 섹션 -->
+  <section class="p-6 bg-gradient-to-b from-white to-gray-50 text-center">
+    <p class="text-xs font-bold text-[#E6007E] tracking-widest uppercase mb-1">[ 홍대입구직영점 소개 ]</p>
+    <h2 class="text-xl font-black text-slate-900 mb-4 leading-tight">
+      LG 유플러스 <span class="text-[#E6007E]">홍대입구직영점</span>을 소개합니다
+    </h2>
+    
+    <div class="premium-intro-card p-5 rounded-2xl mb-6 leading-relaxed text-slate-700">
+      <div class="premium-intro-content">
+        유플러스 홍대입구직영점은,<br>
+        근속 <span class="text-slate-900 font-extrabold">10년 ~ 20년차</span> 
+        <span class="text-2xl font-black text-[#E6007E] block my-1.5 drop-shadow-sm">"통신 전문가"</span> 
+        직원들이 근무하고 있는 
+        <span class="text-2xl font-black text-slate-900 block my-1.5">"본사소속 직영점"</span> 
+        입니다.
+      </div>
+    </div>
+
+    <!-- 4. 2초 간격 이미지 슬라이더 -->
+    <div class="relative w-full h-72 rounded-2xl overflow-hidden shadow-md bg-slate-100 group">
+      <div class="absolute inset-0">
+        <!-- Slide 1 -->
+        <img src="https://i.ibb.co/BHchrNVy/image.jpg" alt="매장 전경 1" class="slide-item absolute inset-0 w-full h-full object-cover opacity-100" onerror="this.src='https://images.unsplash.com/photo-1557426072-9b5eacf4629d?w=800'">
+        <!-- Slide 2 -->
+        <img src="https://i.ibb.co/ns4v52fK/5.jpg" alt="매장 서비스 2" class="slide-item absolute inset-0 w-full h-full object-cover opacity-0" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800'">
+        <!-- Slide 3 -->
+        <img src="https://i.ibb.co/ycdL7Hd5/3.jpg" alt="매장 내부 3" class="slide-item absolute inset-0 w-full h-full object-cover opacity-0" onerror="this.src='https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800'">
+        <!-- Slide 4 -->
+        <img src="https://i.ibb.co/zhL9Bbm8/2.jpg" alt="전문가 상담 4" class="slide-item absolute inset-0 w-full h-full object-cover opacity-0" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800'">
+        <!-- Slide 5 -->
+        <img src="https://i.ibb.co/1Jmgv3dp/4.jpg" alt="매장 전경 5" class="slide-item absolute inset-0 w-full h-full object-cover opacity-0" onerror="this.src='https://images.unsplash.com/photo-1542744094-3a31f103e35f?w=800'">
+      </div>
+      
+      <!-- Gradient overlay for text visibility -->
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-left">
+        <p class="text-white text-xs font-semibold tracking-wider">LGU+ 홍대입구직영점</p>
+        <p class="text-white/90 text-sm font-medium">최상의 고객 맞춤 1:1 컨설팅을 제공합니다</p>
+      </div>
+      
+      <!-- Slide indicators -->
+      <div class="absolute top-3 right-3 bg-black/50 text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold tracking-widest">
+        <span id="slide-num">1</span>/5
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 6월 주요 혜택 타이틀 -->
+  <section class="premium-benefit-title px-5 py-6 bg-slate-900 text-white text-center">
+    <div class="inline-block px-4 py-1.5 bg-[#E6007E] rounded-full text-xs font-black tracking-widest mb-2 animate-pulse">JUNE BENEFIT</div>
+    <h3 class="text-2xl font-black tracking-tight text-white drop-shadow">
+      [ 6월 주요혜택 안내 ]
+    </h3>
+    <p class="text-xs text-slate-300 mt-1.5">베너를 누르시면 상세 혜택과 이미지를 확인할 수 있습니다.</p>
+  </section>
+
+  <!-- 6. 6대 주요 혜택 배너 영역 (아코디언 구조) -->
+  <section class="p-4 space-y-4 bg-slate-50">
+
+    <!-- 배너 1 (삼성 20% 페스티벌) -->
+    <div class="premium-benefit-card premium-samsung-card bg-[#034EA2]/90 rounded-2xl border border-blue-200/50 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md relative text-white">
+      <!-- HOT 배지 (바운싱 효과) -->
+      <div class="absolute top-3 left-3 z-10 bg-gradient-to-r from-red-500 to-amber-500 text-white font-extrabold text-[10px] px-2 py-0.5 rounded-full shadow-md animate-bounce-hot flex items-center gap-1">
+        <span>🔥</span> HOT <span>🔥</span>
+      </div>
+      
+      <!-- 배너 머리글 클릭 트리거 -->
+      <div class="p-5 pt-8 flex items-center justify-between gap-3 cursor-pointer" onclick="toggleAccordion('acc1')">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-1">📱</span>
+          <div>
+            <span class="inline-block text-[10px] font-bold text-[#034EA2] bg-white px-2 py-0.5 rounded-md mb-1">삼성 페스티벌</span>
+            <h4 class="font-extrabold text-sm text-white leading-snug">
+              유플러스에서 삼성폰 20% 환급 페스티벌! 돌려받는 금액 확인!
+            </h4>
+          </div>
+        </div>
+        <button class="benefit-check-btn bg-white text-[#034EA2] font-bold text-xs px-3 py-2 rounded-xl whitespace-nowrap shadow-sm hover:bg-blue-50 shrink-0 flex items-center gap-1">
+          <span>확인</span><i class="fa-solid fa-chevron-down text-[10px]" id="arrow-acc1"></i>
+        </button>
+      </div>
+
+      <!-- 배너 상세내용 (아코디언) -->
+      <div id="acc1" class="accordion-content">
+        <div class="p-5 bg-gradient-to-b from-blue-900/40 to-[#034EA2] border-t border-blue-400/30">
+          <div class="bg-white text-[#034EA2] rounded-xl p-4 text-center mb-5 shadow-sm">
+            <p class="text-xs font-semibold opacity-90 mb-1">삼성X유플러스 한정 혜택</p>
+            <h5 class="text-[15px] font-black leading-relaxed">
+              "지금 유플러스에서 삼성폰 개통시,<br>
+              <span class="text-[#E6007E] text-lg underline underline-offset-4">출고가의 20%를 상품권</span>으로 돌려 드립니다!"
+            </h5>
+          </div>
+          
+          <!-- 이미지 목록 -->
+          <div class="space-y-3">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/1.%EC%82%BC%EC%B2%B4%ED%8E%98_1.png?raw=true" alt="삼성 페스티벌 정보 1" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800'">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/1.%EC%82%BC%EC%B2%B4%ED%8E%98_2.png?raw=true" alt="삼성 페스티벌 정보 2" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1583573636246-18cb2246697f?w=800'">
+          </div>
+
+          <!-- 문의하기 버튼 -->
+          <a href="https://open.kakao.com/o/sXpbHGzi" target="_blank" class="block w-full text-center bg-white hover:bg-blue-50 text-[#034EA2] font-extrabold py-3.5 px-4 rounded-xl shadow-lg mt-6 transition duration-200 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-comment-dots"></i> 20% 환급 혜택 실시간 문의하기
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 배너 2 (인터넷 요금 지원) -->
+    <div class="premium-benefit-card premium-internet-card bg-[#E6007E]/90 rounded-2xl border border-pink-200/50 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md relative text-white">
+      <!-- HOT 배지 (바운싱 효과) -->
+      <div class="absolute top-3 left-3 z-10 bg-gradient-to-r from-red-500 to-amber-500 text-white font-extrabold text-[10px] px-2 py-0.5 rounded-full shadow-md animate-bounce-hot flex items-center gap-1">
+        <span>🔥</span> HOT <span>🔥</span>
+      </div>
+
+      <!-- 배너 머리글 클릭 트리거 -->
+      <div class="p-5 pt-8 flex items-center justify-between gap-3 cursor-pointer" onclick="toggleAccordion('acc2')">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-1">💻</span>
+          <div>
+            <span class="inline-block text-[10px] font-bold text-[#E6007E] bg-white px-2 py-0.5 rounded-md mb-1">인터넷 전액지원</span>
+            <h4 class="font-extrabold text-sm text-white leading-snug">
+              우리집/가게/사무실 인터넷 요금 전액 지원받기
+            </h4>
+          </div>
+        </div>
+        <button class="benefit-check-btn bg-white text-[#E6007E] font-bold text-xs px-3 py-2 rounded-xl whitespace-nowrap shadow-sm hover:bg-pink-50 shrink-0 flex items-center gap-1">
+          <span>확인</span><i class="fa-solid fa-chevron-down text-[10px]" id="arrow-acc2"></i>
+        </button>
+      </div>
+
+      <!-- 배너 상세내용 (아코디언) -->
+      <div id="acc2" class="accordion-content">
+        <div class="p-5 bg-gradient-to-b from-pink-950/40 to-[#E6007E] border-t border-pink-400/30">
+          <div class="bg-white text-[#E6007E] rounded-xl p-4 text-center mb-5 shadow-sm">
+            <p class="text-xs font-semibold opacity-90 mb-1">올인원 대박 결합 혜택</p>
+            <h5 class="text-[15px] font-black leading-relaxed">
+              "올인원 요금 혜택! 모바일 요금으로<br>
+              <span class="text-[#E6007E] text-lg underline underline-offset-4">인터넷 + 와이파이를 함께 사용</span> 하세요!"
+            </h5>
+          </div>
+
+          <!-- 이미지 목록 -->
+          <div class="space-y-3">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/2.%EC%98%AC%EC%9D%B8%EC%9B%90_%EB%B3%B8%EC%82%AC1.png?raw=true" alt="인터넷 혜택 정보 1" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800'">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/2.%EC%98%AC%EC%9D%B8%EC%9B%90_%EC%B0%BD%EC%99%84_2.png?raw=true" alt="인터넷 혜택 정보 2" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800'">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/2.%EC%98%AC%EC%9D%B8%EC%9B%90_%EC%B0%BD%EC%99%843.png?raw=true" alt="인터넷 혜택 정보 3" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1551703599-6b3dbb57c24e?w=800'">
+          </div>
+
+          <!-- 문의하기 버튼 -->
+          <a href="https://open.kakao.com/o/sXpbHGzi" target="_blank" class="block w-full text-center bg-white hover:bg-pink-50 text-[#E6007E] font-extrabold py-3.5 px-4 rounded-xl shadow-lg mt-6 transition duration-200 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-comment-dots"></i> 인터넷 요금 지원 실시간 상담받기
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 배너 3 (무료 필름/케이스 제공) -->
+    <div class="premium-benefit-card bg-white rounded-2xl border border-purple-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+      <!-- 배너 머리글 클릭 트리거 -->
+      <div class="p-5 flex items-center justify-between gap-3 cursor-pointer" onclick="toggleAccordion('acc3')">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-1">🎁</span>
+          <div>
+            <span class="inline-block text-[10px] font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded-md mb-1">통신사 상관없음</span>
+            <h4 class="font-extrabold text-sm text-slate-900 leading-snug">
+              무료필름/케이스 제공 신청 ( SK,KT,알뜰폰,U+고객)
+            </h4>
+          </div>
+        </div>
+        <button class="benefit-check-btn bg-[#E6007E] text-white font-bold text-xs px-3 py-2 rounded-xl whitespace-nowrap shadow-sm hover:bg-rose-600 shrink-0 flex items-center gap-1">
+          <span>확인</span><i class="fa-solid fa-chevron-down text-[10px]" id="arrow-acc3"></i>
+        </button>
+      </div>
+
+      <!-- 배너 상세내용 (아코디언) -->
+      <div id="acc3" class="accordion-content">
+        <div class="p-5 bg-gradient-to-b from-purple-50/30 to-white border-t border-slate-100">
+          <div class="bg-purple-600 text-white rounded-xl p-4 text-center mb-5 shadow-sm">
+            <p class="text-xs font-semibold opacity-90 mb-1">방문 고객 전원 감사 서비스</p>
+            <h5 class="text-[14px] font-black leading-relaxed">
+              "필름/케이스 무료제공은 매장 재고상황에 따라 제공 됩니다.<br>
+              아래, 문의 하기 버튼으로 가능여부를 꼭 확인해 주세요!"
+            </h5>
+          </div>
+
+          <!-- 이미지 목록 -->
+          <div class="space-y-3">
+            <img src="https://i.ibb.co/yn1HTjP6/image.png" alt="무료 필름 케이스 이미지" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800'">
+          </div>
+
+          <!-- 문의하기 버튼 -->
+          <a href="https://open.kakao.com/o/sXpbHGzi" target="_blank" class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg mt-6 transition duration-200 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-comment-dots"></i> 필름/케이스 교체 문의하기
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 배너 4 (단골 쿠폰 혜택) -->
+    <div class="premium-benefit-card bg-white rounded-2xl border border-amber-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+      <!-- 배너 머리글 클릭 트리거 -->
+      <div class="p-5 flex items-center justify-between gap-3 cursor-pointer" onclick="toggleAccordion('acc4')">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-1">☕</span>
+          <div>
+            <span class="inline-block text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md mb-1">단골 전용 혜택</span>
+            <h4 class="font-extrabold text-sm text-slate-900 leading-snug">
+              6월 홍대입구점 단골 등록하고 메가 커피쿠폰 or 다이소 무료쿠폰 혜택받기!
+            </h4>
+          </div>
+        </div>
+        <button class="benefit-check-btn bg-[#E6007E] text-white font-bold text-xs px-3 py-2 rounded-xl whitespace-nowrap shadow-sm hover:bg-rose-600 shrink-0 flex items-center gap-1">
+          <span>확인</span><i class="fa-solid fa-chevron-down text-[10px]" id="arrow-acc4"></i>
+        </button>
+      </div>
+
+      <!-- 배너 상세내용 (아코디언) -->
+      <div id="acc4" class="accordion-content">
+        <div class="p-5 bg-gradient-to-b from-amber-50/30 to-white border-t border-slate-100">
+          <div class="bg-amber-500 text-white rounded-xl p-4 text-center mb-5 shadow-sm">
+            <p class="text-xs font-semibold opacity-90 mb-1">100% 무료 쿠폰 선물</p>
+            <h5 class="text-[14px] font-black leading-relaxed">
+              "통신사 무관! 매장 고객등록 완료 후 매장 방문 시<br>
+              <span class="text-slate-900 underline underline-offset-4 font-black">다이소 쿠폰 OR 메가 커피 쿠폰</span>을 전원 증정합니다!"
+            </h5>
+          </div>
+
+          <!-- 이미지 목록 -->
+          <div class="space-y-3">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/4.%EC%9C%A0%EC%B2%B4%ED%8E%98_%EB%B3%B8%EC%82%AC_1.png?raw=true" alt="단골 등록 혜택 1" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800'">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/4.%EC%9C%A0%EC%B2%B4%ED%8E%98_%EC%B0%BD%EC%99%842.png?raw=true" alt="단골 등록 혜택 2" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=800'">
+          </div>
+
+          <!-- 문의하기 버튼 -->
+          <a href="https://open.kakao.com/o/sXpbHGzi" target="_blank" class="block w-full text-center bg-amber-500 hover:bg-amber-600 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg mt-6 transition duration-200 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-ticket"></i> 메가커피/다이소 무료쿠폰 요청하기
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 배너 5 (시니어 특별 요금제) -->
+    <div class="premium-benefit-card bg-white rounded-2xl border border-rose-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+      <!-- 배너 머리글 클릭 트리거 -->
+      <div class="p-5 flex items-center justify-between gap-3 cursor-pointer" onclick="toggleAccordion('acc5')">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-1">👵</span>
+          <div>
+            <span class="inline-block text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md mb-1">만 65세 이상 시니어</span>
+            <h4 class="font-extrabold text-sm text-slate-900 leading-snug">
+              만 65세 이상 시니어를 위한 특별 요금 안내!
+            </h4>
+          </div>
+        </div>
+        <button class="benefit-check-btn bg-[#E6007E] text-white font-bold text-xs px-3 py-2 rounded-xl whitespace-nowrap shadow-sm hover:bg-rose-600 shrink-0 flex items-center gap-1">
+          <span>확인</span><i class="fa-solid fa-chevron-down text-[10px]" id="arrow-acc5"></i>
+        </button>
+      </div>
+
+      <!-- 배너 상세내용 (아코디언) -->
+      <div id="acc5" class="accordion-content">
+        <div class="p-5 bg-gradient-to-b from-rose-50/30 to-white border-t border-slate-100">
+          <div class="bg-rose-500 text-white rounded-xl p-4 text-left mb-5 shadow-sm space-y-2">
+            <p class="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded-md inline-block">SK, KT, 알뜰폰 쓰던 분도 혜택 그대로!</p>
+            <h5 class="text-[14px] font-black leading-relaxed">
+              👵👴 시니어 고객님들을 위한 최강 특별제안!<br>
+              • <span class="text-yellow-200 underline underline-offset-4">휴대폰 구매 없이, 통신사만 변경해도!</span><br>
+              • <span class="text-yellow-300 text-lg">월 15,700원에 데이터 무제한!</span><br>
+              • 추가 가족결합 할인까지 즉시 적용 가능!
+            </h5>
+          </div>
+
+          <!-- 이미지 목록 -->
+          <div class="space-y-3">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/5.%EC%8B%9C%EB%8B%88%EC%96%B4_%EC%9C%A0%EC%8B%ACmnp_%EC%B0%BD%EC%99%841.png?raw=true" alt="시니어 특별 요금제" class="w-full rounded-xl shadow-inner object-cover" onerror="this.src='https://images.unsplash.com/photo-1581579438747-1dc8d1e0ca96?w=800'">
+          </div>
+
+          <!-- 문의하기 버튼 -->
+          <a href="https://open.kakao.com/o/sXpbHGzi" target="_blank" class="block w-full text-center bg-rose-500 hover:bg-rose-600 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg mt-6 transition duration-200 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-comment-dots"></i> 시니어 요금혜택 문의하기
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 배너 6 (외국인 전용 혜택) -->
+    <div class="premium-benefit-card bg-white rounded-2xl border border-[#E6007E]/20 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+      <!-- 배너 머리글 클릭 트리거 -->
+      <div class="p-5 flex items-center justify-between gap-3 cursor-pointer" onclick="toggleAccordion('acc6')">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl mt-1">🌐</span>
+          <div>
+            <span class="inline-block text-[10px] font-bold text-[#E6007E] bg-rose-50 px-2 py-0.5 rounded-md mb-1">Global Customer Only</span>
+            <h4 class="font-extrabold text-sm text-slate-900 leading-snug">
+              외국인 고객 전용 혜택 (Korean/English/Chinese)
+            </h4>
+          </div>
+        </div>
+        <button class="benefit-check-btn bg-[#E6007E] text-white font-bold text-xs px-3 py-2 rounded-xl whitespace-nowrap shadow-sm hover:bg-rose-600 shrink-0 flex items-center gap-1">
+          <span>확인</span><i class="fa-solid fa-chevron-down text-[10px]" id="arrow-acc6"></i>
+        </button>
+      </div>
+
+      <!-- 배너 상세내용 (아코디언) -->
+      <div id="acc6" class="accordion-content">
+        <div class="p-5 bg-gradient-to-b from-rose-50/20 to-white border-t border-slate-100">
+          <!-- Multi Language Information -->
+          <div class="space-y-4">
+            <!-- Korean -->
+            <div class="bg-rose-50 border-l-4 border-[#E6007E] p-3.5 rounded-r-xl">
+              <span class="text-[10px] font-bold text-[#E6007E] block mb-1">🇰🇷 한국어 안내</span>
+              <p class="text-sm font-black text-slate-800 leading-relaxed">
+                국내 거주하시는 외국인 고객을 위한 특별한 제안!<br>
+                모바일 요금으로 집 인터넷 + 와이파이까지 전액 사용 가능!<br>
+                친구들과 함께 쓰면 <span class="text-[#E6007E] font-bold">최대 20,000원 추가 할인!</span>
+              </p>
+            </div>
+            
+            <!-- English -->
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-3.5 rounded-r-xl">
+              <span class="text-[10px] font-bold text-blue-600 block mb-1">🇺🇸 English Guide</span>
+              <p class="text-sm font-black text-slate-800 leading-relaxed">
+                Special benefits for foreign residents in Korea!<br>
+                Use home high-speed Internet + Wi-Fi for FREE with mobile plan!<br>
+                Combine with friends to get <span class="text-blue-600 font-bold">up to 20,000 KRW additional discount!</span>
+              </p>
+            </div>
+
+            <!-- Chinese -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3.5 rounded-r-xl">
+              <span class="text-[10px] font-bold text-amber-700 block mb-1">🇨🇳 中文指南</span>
+              <p class="text-sm font-black text-slate-800 leading-relaxed">
+                专为居住在韩国的外国客户提供的特别优惠！<br>
+                只需办理手机资费套餐，即可免费使用家用宽带+无线Wi-Fi！<br>
+                与朋友一起合用，最多可享受 <span class="text-amber-700 font-bold">20,000韩元的追加优惠！</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- 외국인 혜택 이미지 3종 추가 (한국어 -> 영문 -> 중국어 버전 정렬) -->
+          <div class="space-y-3 mt-5">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/6.%ED%95%9C%EA%B5%AD%EC%96%B4%20%EB%B2%84%EC%A0%84.png?raw=true" alt="외국인 혜택 한국어 버전" class="w-full rounded-xl shadow-inner object-cover border border-slate-100" onerror="this.src='https://images.unsplash.com/photo-1542744094-3a31f103e35f?w=800'">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/6.%EC%99%B8%EA%B5%AD%EC%9D%B8_%EC%98%81%EB%AC%B8%EB%B2%84%EC%A0%84.png?raw=true" alt="외국인 혜택 영문 버전" class="w-full rounded-xl shadow-inner object-cover border border-slate-100" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800'">
+            <img src="https://github.com/wanny1847/wanny1/blob/main/6.%EC%A4%91%EA%B5%AD%EC%96%B4%EB%B2%84%EC%A0%84.png?raw=true" alt="외국인 혜택 중국어 버전" class="w-full rounded-xl shadow-inner object-cover border border-slate-100" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800'">
+          </div>
+
+          <!-- 문의하기 버튼 -->
+          <a href="https://open.kakao.com/o/sXpbHGzi" target="_blank" class="block w-full text-center bg-[#E6007E] hover:bg-rose-600 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg mt-6 transition duration-200 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-earth-americas"></i> 외국인 혜택 문의하기 / Inquiry / 咨询
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 7. 매장 위치 및 오시는 길 정보 섹션 -->
+  <section class="p-6 bg-white border-t border-gray-100">
+    <div class="text-center mb-5">
+      <span class="text-xs font-bold text-[#E6007E] tracking-widest uppercase mb-1">[ 오시는 길 안내 ]</span>
+      <h3 class="text-xl font-extrabold text-slate-900">U+ 홍대입구직영점 위치</h3>
+      <p class="text-xs text-slate-500 mt-1">홍대입구역 최고의 요지에 위치한 믿음직한 본사 직영 매장</p>
+    </div>
+
+    <!-- 고해상도 매장 이미지 (제시해주신 경로) -->
+    <div id="location-photo-zoom" class="premium-location-photo rounded-2xl overflow-hidden shadow-md mb-4 border border-slate-100">
+      <img src="https://i.ibb.co/BHchrNVy/image.jpg" alt="유플러스 홍대입구직영점 전경 및 약도" class="w-full h-52 object-cover" onerror="this.src='https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800'">
+    </div>
+
+    <!-- 주소지 정보 카드 -->
+    <div class="premium-location-card bg-slate-50 p-4.5 rounded-xl border border-slate-100 text-sm mb-5 leading-relaxed space-y-3">
+      <div class="flex items-start gap-2.5">
+        <span class="text-[#E6007E] mt-0.5"><i class="fa-solid fa-location-dot"></i></span>
+        <div>
+          <strong class="text-slate-900 block text-[15px]">도로명 주소</strong>
+          <span class="text-slate-700 text-sm">양화로 178-5 (LC타워 별관)</span>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-2.5">
+        <span class="text-blue-500 mt-0.5"><i class="fa-solid fa-route"></i></span>
+        <div>
+          <strong class="text-slate-900 block text-[15px]">지하철로 쉽게 찾아오시는 방법</strong>
+          <p class="text-slate-700 text-xs mt-1 leading-relaxed">
+            <span class="bg-emerald-500 text-white px-1.5 py-0.5 rounded-md font-bold text-[10px] mr-1">2호선 / 공항철도</span>
+            <strong>홍대입구역 8번 출구</strong>로 나와 좌측 골목으로 진입하신 뒤, <strong>도보 1분 이내</strong> 거리에 있는 LC타워 별관 U+ 직영점으로 오시면 빠르게 방문이 가능합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 네이버 지도로 매장 찾아가기 버튼 -->
+    <a href="https://map.naver.com/v5/search/%EC%96%91%ED%99%94%EB%A1%9C178-5" target="_blank" class="block w-full text-center bg-[#03C75A] hover:bg-[#02b350] text-white font-extrabold py-3.5 px-4 rounded-xl shadow-md transition duration-200 flex items-center justify-center gap-2">
+      <span class="bg-white text-[#03C75A] w-5 h-5 rounded-full flex items-center justify-center font-black text-xs">N</span> 네이버 지도로 빠른 길찾기 실행
+    </a>
+  </section>
+
+  <!-- 하단 풋터 브랜드 영역 -->
+  <footer class="bg-slate-100 text-center py-8 px-6 text-xs text-slate-400 border-t border-slate-200">
+    <div class="flex justify-center items-center gap-1.5 mb-2.5">
+      <span class="w-5 h-5 bg-slate-400 rounded-full flex items-center justify-center text-white text-[9px] font-bold">U+</span>
+      <span class="font-bold text-slate-500">LG유플러스 홍대입구직영점</span>
+    </div>
+    <p class="leading-relaxed">
+      본 페이지는 LG U+ 홍대입구직영점의 6월 주요 혜택 및 고객 혜택 안내를 목적으로 합니다. 상기 이미지는 연출되거나 실제 매장 운영 사정에 따라 변경될 수 있습니다.
+    </p>
+    <p class="mt-2.5 text-[10px]">© 2026 LGU+ Hongdae Office. All Rights Reserved.</p>
+  </footer>
+
+  <!-- 8. 하단 카카오톡 상담 플로팅 버튼 고정 바 -->
+  <div class="fixed bottom-0 inset-x-0 max-w-xl mx-auto px-4 py-3 bg-white/80 backdrop-blur-md border-t border-slate-100 flex items-center justify-between gap-3 z-50">
+    <a href="https://open.kakao.com/o/sXpbHGzi" target="_blank" class="w-12 h-12 bg-[#FEE500] hover:bg-[#F0D800] text-[#191919] rounded-2xl flex items-center justify-center text-xl shadow-md transition-transform duration-200 active:scale-95 shrink-0" title="카카오톡 1:1 오픈채팅 연결">
+      <i class="fa-solid fa-comment text-xl"></i>
+    </a>
+    <a href="https://open.kakao.com/o/sXpbHGzi" target="_blank" class="flex-1 bg-[#FEE500] hover:bg-[#F0D800] text-[#191919] font-extrabold text-sm py-3.5 px-4 rounded-xl text-center shadow-lg transition-transform duration-200 active:scale-95 flex items-center justify-center gap-2">
+      <span class="animate-pulse">💬</span> 6월 최대지원 1:1 상담받기
+    </a>
+  </div>
+
+  <!-- JavaScript for Interactive Controls -->
+  <script>
+    // 1. Image Slideshow Controller (Exact 2-second Interval)
+    const slides = document.querySelectorAll('.slide-item');
+    const slideNum = document.getElementById('slide-num');
+    let currentSlide = 0;
+
+    function nextSlide() {
+      // Hide current slide
+      slides[currentSlide].classList.remove('opacity-100');
+      slides[currentSlide].classList.add('opacity-0');
+
+      // Go to next slide index
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      // Show next slide
+      slides[currentSlide].classList.remove('opacity-0');
+      slides[currentSlide].classList.add('opacity-100');
+
+      // Update text indicator
+      slideNum.textContent = currentSlide + 1;
+    }
+
+    // Set slideshow to exactly 2000ms (2 seconds)
+    setInterval(nextSlide, 2000);
+
+    // 2. Accordion Controller
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const arrow = document.getElementById('arrow-' + id);
+      const allContents = document.querySelectorAll('.accordion-content');
+      const allArrows = document.querySelectorAll('[id^="arrow-acc"]');
+
+      // Close other accordions first (Optional for a neat view, highly premium mobile UX)
+      allContents.forEach((item) => {
+        if (item.id !== id) {
+          item.classList.remove('open');
+        }
+      });
+      allArrows.forEach((item) => {
+        if (item.id !== 'arrow-' + id) {
+          item.style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Toggle target accordion
+      if (content.classList.contains('open')) {
+        content.classList.remove('open');
+        arrow.style.transform = 'rotate(0deg)';
+      } else {
+        content.classList.add('open');
+        arrow.style.transform = 'rotate(180deg)';
+        
+        // Smooth scroll to the expanded item with a slight delay
+        setTimeout(() => {
+          content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 300);
+      }
+    }
+
+
+    // 3. Location photo zoom toggle for mobile tap/click
+    const locationPhotoZoom = document.getElementById('location-photo-zoom');
+    if (locationPhotoZoom) {
+      locationPhotoZoom.addEventListener('click', () => {
+        locationPhotoZoom.classList.toggle('is-zoomed');
+      });
+    }
+
+    // Set Arrow transition styling dynamically
+    document.querySelectorAll('[id^="arrow-acc"]').forEach(el => {
+      el.style.transition = 'transform 0.3s ease';
+    });
+  </script>
+</body>
+</html>
